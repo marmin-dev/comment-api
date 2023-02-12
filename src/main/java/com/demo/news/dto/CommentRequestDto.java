@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -15,18 +16,14 @@ import java.util.Date;
 @NoArgsConstructor
 public class CommentRequestDto {
 
-    String author
+    public String author;
     public String title;
 
-    public Date modifiedDate;
-
-    public Comment toEntity(){
-        Comment comment = Comment.builder()
-                .author(this.author)
-                .title(this.title)
-                .modifiedDate(this.modifiedDate)
+    /*request dto에서 바로 엔티티로 전달되는 객체*/
+    public Comment toEntity(CommentRequestDto dto){
+        return  Comment.builder()
+                .author(dto.author)
+                .title(dto.title)
                 .build();
-
-
     }
 }
