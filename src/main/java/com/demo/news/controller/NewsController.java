@@ -27,4 +27,16 @@ public class NewsController {
     public ResponseEntity<?> commentGet(){
         return ResponseEntity.status(HttpStatus.OK).body(commentService.joinComment());
     }
+
+    /*Update 메서드*/
+    @PutMapping("/{id}")
+    public ResponseEntity<?> commentUpdate(@PathVariable Long id, @RequestParam String title){
+        return ResponseEntity.status(HttpStatus.OK).body(commentService.updateComment(id, title));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> commentDelete(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(commentService.deleteComment(id));
+    }
+
 }

@@ -28,5 +28,7 @@ public class Comment extends BaseEntity{
     @Column(nullable = false)
     public String title;
 
-
+    public void update(String title){
+        this.title = title;
+    }
 }

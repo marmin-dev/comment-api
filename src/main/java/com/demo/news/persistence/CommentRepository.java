@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CommentRepository extends JpaRepository<Comment,String> {
+public interface CommentRepository extends JpaRepository<Comment,Long> {
+
     @Query(value = "SELECT * FROM comment ORDER BY id DESC", nativeQuery = true)
     public List<Comment> findAllByDesc();
 }
